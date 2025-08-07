@@ -1,0 +1,155 @@
+.calendar-wrapper {
+  width: 445px;
+  height: 426px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+  margin-top: 5px;
+}
+
+.custom-calendar {
+  width: 100%;
+  border: 1px solid gray;
+  /* border: none !important; */
+  border-radius: 0.5rem;
+  padding: 3% 5%;
+  background-color: white;
+}
+
+.react-calendar__tile {
+  /* pointer-events: none; */
+  position: relative;
+  background-color: white;
+  /* background-color: transparent !important; */
+}
+
+.react-calendar__tile:hover {
+  background-color: inherit;
+  cursor: default;
+}
+
+.react-calendar__navigation {
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.react-calendar__navigation__label__labelText {
+  color: #3f3f3f;
+}
+
+.react-calendar__navigation__arrow {
+  background-color: transparent;
+  color: #3f3f3f;
+}
+
+.react-calendar__navigation button {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.react-calendar__navigation button:hover,
+.react-calendar__navigation button:active,
+.react-calendar__navigation button:focus {
+  background-color: transparent;
+}
+
+.react-calendar__navigation__label {
+  pointer-events: white;
+  flex-grow: 0 !important;
+}
+
+.react-calendar__navigation__label__labelText:hover {
+  color: #3f3f3f;
+}
+
+.react-calendar__month-view__weekdays abbr {
+  text-decoration: white;
+  font-weight: 700;
+}
+
+.react-calendar__month-view__weekdays__weekday--weekend abbr[title="일요일"] {
+  color: #ff0000;
+}
+
+.react-calendar__month-view__weekdays__weekday--weekend abbr[title="토요일"] {
+  color: #2e7af2;
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  color: #424242;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth abbr {
+  color: #bdbdbd !important;
+}
+
+.react-calendar__tile--active {
+  background: #dfdfdf !important;
+  color: #424242;
+}
+
+/* 오늘 날짜 */
+.react-calendar__tile--now {
+  background: white !important;
+  position: relative;
+  z-index: 1;
+}
+
+.react-calendar__tile--now abbr {
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.react-calendar__tile--now::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #2c2c2c;
+  transform: translate(-50%, -50%);
+}
+
+.react-calendar__tile--now:not(.react-calendar__tile--active)::after {
+  background-color: #bdbdbd;
+}
+
+.react-calendar__year-view__months__month {
+  border-radius: 0.8rem;
+  background-color: white;
+  padding: 0;
+}
+
+.react-calendar__tile {
+  padding: 17px;
+}
+
+.today-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: #121212;
+  color: white;
+  width: 90px;
+  text-align: center;
+  line-height: 1.6rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.dot-indicator {
+  background-color: #ff4949;
+  border-radius: 50%;
+  width: 0.3rem;
+  height: 0.3rem;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
