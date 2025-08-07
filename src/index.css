@@ -1,0 +1,23 @@
+html,
+body {
+  margin: 0px;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  height: -webkit-fill-available;
+}
+
+#root {
+  background-color: white;
+  max-width: 767px;
+  margin: 0 auto;
+  height: -webkit-fill-available;
+  padding: 0px 20px;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+div {
+  margin: 0 auto;
+}

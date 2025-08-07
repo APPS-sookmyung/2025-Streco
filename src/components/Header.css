@@ -1,0 +1,12 @@
+.Header {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px 0px;
+  border-bottom: 1px solid rgb(226, 226, 226);
+}
+
+.Header img {
+  width: 30%;
+  max-width: 150px;
+  height: auto;
+}

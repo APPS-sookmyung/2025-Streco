@@ -1,0 +1,13 @@
+.streamer_img_wrapper {
+  display: flex;
+  border-radius: 50%;
+  justify-content: flex-start;
+  margin: 10px;
+}
+
+.streamer_img_wrapper > img {
+  border-radius: 50%;
+  border: 1px solid black;
+  height: 50px;
+  margin: 5px;
+}
