@@ -9,11 +9,10 @@
 }
 
 .react-calendar {
-  width: 445px;
-  /* border: 1px solid #c4c4c4; */
   border-radius: 0.5rem;
   padding: 3% 5%;
   background-color: white;
+  width: 80%;
 }
 
 /* 전체 클릭 비활성화 수정 */
@@ -26,7 +25,7 @@
 /* 호버 이벤트 제거 */
 .react-calendar__tile:hover {
   background-color: inherit;
-  cursor: default; /* 마우스 커서도 기본으로 변경 */
+  cursor: default;
 }
 
 .react-calendar__navigation {

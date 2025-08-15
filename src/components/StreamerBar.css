@@ -1,13 +1,15 @@
-.streamer_img_wrapper {
+.streamerbar {
   display: flex;
-  border-radius: 50%;
-  justify-content: flex-start;
-  margin: 10px;
+  margin: 10px 10px 0px 10px;
+  align-items: center;
 }
 
 .streamer_img_wrapper > img {
   border-radius: 50%;
-  border: 1px solid black;
   height: 50px;
   margin: 5px;
+}
+
+.Button_ADD {
+  align-items: center;
 }
