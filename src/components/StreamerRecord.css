@@ -3,8 +3,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: auto;
-  padding: 10px 0 10px 0;
+  margin-left: 0;
+  padding: 10px 0 0 0;
 }
 
 .streamer {
@@ -14,12 +14,12 @@
 
 .streamer > img {
   border-radius: 50%;
-  height: 50px;
+  height: 80px;
   margin: 5px;
 }
 
 .edit {
   display: flex;
   flex-direction: row;
-  margin: 0 10px;
+  margin: 0;
 }

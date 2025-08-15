@@ -12,8 +12,16 @@ export const gameOptions = [
   { value: "er", label: "Eternal Return", image: er },
 ];
 
-export const characterOptions = [
-  { value: "gekko", label: "게코" },
-  { value: "neon", label: "네온" },
-  { value: "deadlock", label: "데드록" },
-];
+import jett from "./../assets/jett.webp";
+
+export const characterOptions = {
+  valorant: [
+    { value: "gekko", label: "게코", image: jett },
+    { value: "neon", label: "네온", image: jett },
+    { value: "deadlock", label: "데드록", image: jett },
+  ],
+  overwatch2: [
+    { value: "tracer", label: "트레이서", image: jett },
+    { value: "reinhardt", label: "라인하르트", image: jett },
+  ],
+};
