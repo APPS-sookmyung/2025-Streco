@@ -21,7 +21,7 @@
   border-radius: 8px;
   border: 1px solid #900;
   overflow: hidden;
-  margin: 0 10px;
+  margin: 0 15px 0 10px;
   box-sizing: border-box;
 }
 
@@ -46,17 +46,17 @@
 
 /* placeholder */
 .custom-select .css-13cymwt-control {
-  margin: 0 10px;
+  margin: 0 15px 0 10px;
 }
 
 .custom-select .css-t3ipsp-control,
 .custom-select .css-t3ipsp-control:hover {
-  margin: 0 10px;
+  margin: 0 15px 0 10px;
   border: none;
   border: 1px solid #b30000;
   box-shadow: 0 0 0 1px #b30000;
 }
 
 .custom-select .css-1nmdiq5-menu {
-  margin: 10px;
+  margin: 15px;
 }

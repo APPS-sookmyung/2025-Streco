@@ -25,6 +25,11 @@
   font-weight: bold;
 }
 
+.Button_ADD:hover {
+  background-color: #5b5b5b;
+  color: white;
+}
+
 .Button_EDIT_DELETE {
   background-color: gray;
   border: none;

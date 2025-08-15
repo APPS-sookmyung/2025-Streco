@@ -2,6 +2,7 @@ import SectionTitle from "./SectionTitle";
 
 import { useState } from "react";
 import DatePicker from "react-datepicker";
+import { GoPaperclip } from "react-icons/go";
 import "react-datepicker/dist/react-datepicker.css";
 import "./BroadcastInfo.css";
 
@@ -33,8 +34,8 @@ const BroadcastInfo = () => {
         />
       </div>
       <div className="streamlink">
-        <p>📷</p>
-        <textarea name="diarycontents" rows={4} cols={40} />
+        <GoPaperclip style={{ height: "25px", width: "25px" }} />
+        <textarea name="streamlink" rows={4} cols={40} />
       </div>
     </div>
   );
