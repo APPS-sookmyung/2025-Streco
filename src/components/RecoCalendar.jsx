@@ -49,9 +49,9 @@ const RecoCalendar = () => {
           return null;
         }}
       />
-      <div className="today-button" onClick={handleTodayClick}>
+      {/* <div className="today-button" onClick={handleTodayClick}>
         Today
-      </div>
+      </div> */}
     </div>
   );
 };

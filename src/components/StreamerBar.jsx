@@ -8,11 +8,13 @@ import streamer3 from "./../assets/streamer3.jpg";
 
 const StreamerBar = () => {
   return (
-    <div className="streamer_img_wrapper">
-      <img src={streamer1}></img>
-      <img src={streamer2}></img>
-      <img src={streamer3}></img>
-      <Button text={"+"} type={"STREAMER_ADD"} />
+    <div className="streamerbar">
+      <div className="streamer_img_wrapper">
+        <img src={streamer1}></img>
+        <img src={streamer2}></img>
+        <img src={streamer3}></img>
+      </div>
+      <Button text={"+"} type={"ADD"} />
     </div>
   );
 };

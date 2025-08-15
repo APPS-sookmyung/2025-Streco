@@ -1,19 +1,15 @@
 .calendar-wrapper {
   width: 445px;
-  height: 426px;
   display: flex;
   justify-content: center;
   position: relative;
   margin: auto;
-  margin-top: 5px;
 }
 
 .custom-calendar {
   width: 100%;
-  border: 1px solid gray;
-  /* border: none !important; */
+  border: none !important;
   border-radius: 0.5rem;
-  padding: 3% 5%;
   background-color: white;
 }
 
@@ -30,7 +26,9 @@
 }
 
 .react-calendar__navigation {
-  border-bottom: 1px solid #dfdfdf;
+  justify-content: space-between;
+  margin: 0;
+  /* border-bottom: 1px solid #dfdfdf; */
 }
 
 .react-calendar__navigation__label__labelText {
@@ -68,7 +66,7 @@
 }
 
 .react-calendar__month-view__weekdays__weekday--weekend abbr[title="일요일"] {
-  color: #ff0000;
+  color: #c11b17;
 }
 
 .react-calendar__month-view__weekdays__weekday--weekend abbr[title="토요일"] {
@@ -127,9 +125,9 @@
   padding: 17px;
 }
 
-.today-button {
+/* .today-button {
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 30px;
   background-color: #121212;
   color: white;
@@ -141,10 +139,10 @@
   font-weight: 500;
   cursor: pointer;
   z-index: 1;
-}
+} */
 
 .dot-indicator {
-  background-color: #ff4949;
+  background-color: #c11b17;
   border-radius: 50%;
   width: 0.3rem;
   height: 0.3rem;

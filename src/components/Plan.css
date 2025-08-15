@@ -1,0 +1,22 @@
+.streamerplan {
+  margin-bottom: 20px;
+}
+
+.streamer {
+  align-items: center;
+}
+
+.Button_ADD {
+  width: 25px;
+  height: 25px;
+}
+
+.Button_streamer {
+  margin: 5px;
+}
+
+.renderSchedule {
+  display: block;
+  margin-left: 20px;
+  cursor: pointer;
+}
