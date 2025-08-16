@@ -1,6 +1,6 @@
 import "./StreamerRecord.css";
 
-import streamer2 from "./../assets/streamer2.jpg";
+import streamer2 from "./../assets/streamer2.webp";
 import Button from "./Button";
 
 const StreamerRecord = () => {
