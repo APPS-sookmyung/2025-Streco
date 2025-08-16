@@ -2,9 +2,9 @@ import "./StreamerBar.css";
 import Button from "./Button";
 ("./Button");
 
-import streamer1 from "./../assets/streamer1.jpg";
-import streamer2 from "./../assets/streamer2.jpg";
-import streamer3 from "./../assets/streamer3.jpg";
+import streamer1 from "./../assets/streamer1.webp";
+import streamer2 from "./../assets/streamer2.webp";
+import streamer3 from "./../assets/streamer3.webp";
 
 const StreamerBar = () => {
   return (

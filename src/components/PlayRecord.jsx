@@ -1,17 +1,36 @@
 import "./PlayRecord.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SectionTitle from "./SectionTitle";
 import CustomSelect from "./CustomSelect";
-import { gameOptions, characterOptions } from "../util/gamedata";
+import {
+  gameOptions,
+  characterOptions,
+  positionOptions,
+} from "../util/gamedata";
 
 const PlayRecord = () => {
   const [selectedGame, setSelectedGame] = useState(null);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const [selectedPosition, setSelectedPosition] = useState(null);
   const [matchEnabled, setMatchEnabled] = useState(false);
   const [score, setScore] = useState({ my: "", enemy: "" });
+  const [imgError, setImgError] = useState(false);
 
   const characters = selectedGame ? characterOptions[selectedGame.value] : [];
+  const position = selectedGame ? positionOptions[selectedGame.value] : [];
+
+  function getImgUrl(selectedGame, name) {
+    if (!selectedGame || !name) return "";
+    return new URL(
+      `../assets/${selectedGame.value}/${name}.webp`,
+      import.meta.url
+    ).href;
+  }
+
+  useEffect(() => {
+    setImgError(false);
+  }, [selectedGame, selectedCharacter]);
 
   return (
     <div>
@@ -53,8 +72,12 @@ const PlayRecord = () => {
         </div>
 
         <div className="playinfo">
-          {selectedCharacter?.image && (
-            <img src={selectedCharacter.image} alt={selectedCharacter.label} />
+          {selectedGame && selectedCharacter?.value && !imgError && (
+            <img
+              src={getImgUrl(selectedGame, selectedCharacter.value)}
+              alt={selectedCharacter.label}
+              onError={() => setImgError(true)}
+            />
           )}
           <div className="customselect">
             <CustomSelect
@@ -63,12 +86,14 @@ const PlayRecord = () => {
               onChange={setSelectedCharacter}
               placeholder="캐릭터 선택"
             />
-            <CustomSelect
-              options={characters}
-              value={selectedCharacter}
-              onChange={setSelectedCharacter}
-              placeholder="캐릭터 선택"
-            />
+            {selectedGame && positionOptions[selectedGame.value] && (
+              <CustomSelect
+                options={position}
+                value={selectedPosition}
+                onChange={setSelectedPosition}
+                placeholder="포지션 선택"
+              />
+            )}
           </div>
         </div>
       </div>
