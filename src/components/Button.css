@@ -30,6 +30,15 @@
   color: white;
 }
 
+.Button_EDIT_CANCEL {
+  background-color: rgb(179, 179, 179);
+  border: none;
+  font-size: 15px;
+  padding: 3px 15px 3px 15px;
+  color: white;
+  margin: 5px;
+}
+
 .Button_EDIT_DELETE {
   background-color: gray;
   border: none;
@@ -40,7 +49,16 @@
 }
 
 .Button_EDIT_DONE {
-  background-color: #b30000;
+  background-color: #bb6969;
+  border: none;
+  font-size: 15px;
+  padding: 3px 15px 3px 15px;
+  color: white;
+  margin: 5px;
+}
+
+.Button_EDIT_EDIT {
+  background-color: #864a4a;
   border: none;
   font-size: 15px;
   padding: 3px 15px 3px 15px;

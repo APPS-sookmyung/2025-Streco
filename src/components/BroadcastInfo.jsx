@@ -6,7 +6,7 @@ import { GoPaperclip } from "react-icons/go";
 import "react-datepicker/dist/react-datepicker.css";
 import "./BroadcastInfo.css";
 
-const BroadcastInfo = () => {
+const BroadcastInfo = ({ isEditMode }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState(new Date());
 
@@ -20,6 +20,7 @@ const BroadcastInfo = () => {
           dateFormat="yyyy-MM-dd"
           placeholderText="날짜 선택"
           popperPlacement="bottom-start"
+          disabled={!isEditMode}
         />
 
         <DatePicker
@@ -31,11 +32,12 @@ const BroadcastInfo = () => {
           timeCaption="시간"
           dateFormat="HH:mm"
           placeholderText="시간 선택"
+          disabled={!isEditMode}
         />
       </div>
       <div className="streamlink">
         <GoPaperclip style={{ height: "25px", width: "25px" }} />
-        <textarea name="streamlink" rows={4} cols={40} />
+        <textarea name="streamlink" rows={4} cols={40} disabled={!isEditMode} />
       </div>
     </div>
   );

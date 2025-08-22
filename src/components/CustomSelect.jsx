@@ -1,7 +1,13 @@
 import Select from "react-select";
 import "./CustomSelect.css";
 
-const CustomSelect = ({ options, value, onChange, placeholder }) => {
+const CustomSelect = ({
+  options,
+  value,
+  onChange,
+  placeholder,
+  isDisabled,
+}) => {
   return (
     <Select
       className="custom-select"
@@ -10,6 +16,7 @@ const CustomSelect = ({ options, value, onChange, placeholder }) => {
       value={value}
       onChange={onChange}
       placeholder={placeholder}
+      isDisabled={isDisabled}
     />
   );
 };

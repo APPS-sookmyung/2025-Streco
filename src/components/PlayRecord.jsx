@@ -9,7 +9,7 @@ import {
   positionOptions,
 } from "../util/gamedata";
 
-const PlayRecord = () => {
+const PlayRecord = ({ isEditMode }) => {
   const [selectedGame, setSelectedGame] = useState(null);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [selectedPosition, setSelectedPosition] = useState(null);
@@ -41,6 +41,7 @@ const PlayRecord = () => {
           value={selectedGame}
           onChange={setSelectedGame}
           placeholder="게임 선택"
+          isDisabled={!isEditMode}
         />
         {selectedGame?.image && (
           <img src={selectedGame.image} alt={selectedGame.label} />
@@ -54,6 +55,7 @@ const PlayRecord = () => {
             type="checkbox"
             checked={matchEnabled}
             onChange={() => setMatchEnabled((prev) => !prev)}
+            disabled={!isEditMode}
           />
           <span>경기</span>
           <input
@@ -85,6 +87,7 @@ const PlayRecord = () => {
               value={selectedCharacter}
               onChange={setSelectedCharacter}
               placeholder="캐릭터 선택"
+              isDisabled={!isEditMode}
             />
             {selectedGame && positionOptions[selectedGame.value] && (
               <CustomSelect
@@ -92,6 +95,7 @@ const PlayRecord = () => {
                 value={selectedPosition}
                 onChange={setSelectedPosition}
                 placeholder="포지션 선택"
+                isDisabled={!isEditMode}
               />
             )}
           </div>
@@ -99,7 +103,12 @@ const PlayRecord = () => {
       </div>
       <div className="diary">
         <SectionTitle text={"# 감상 기록"} />
-        <textarea name="diarycontents" rows={4} cols={40} />
+        <textarea
+          name="diarycontents"
+          rows={4}
+          cols={40}
+          disabled={!isEditMode}
+        />
       </div>
     </div>
   );
