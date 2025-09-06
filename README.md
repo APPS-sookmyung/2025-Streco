@@ -1,12 +1,8 @@
-# React + Vite
+# 🎮 Streco
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+본 프로젝트는 스트리머 방송 기록을 저장하고 조회할 수 있는 웹 서비스입니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 배포 링크
+- https://vercel.com/limyujins-projects/2025-streco/Beq5jzNUm7oCqGXZZq4kLgkodCX8 
