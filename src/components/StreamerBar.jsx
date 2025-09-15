@@ -2,19 +2,32 @@ import "./StreamerBar.css";
 import Button from "./Button";
 ("./Button");
 
-import streamer1 from "./../assets/streamer1.webp";
-import streamer2 from "./../assets/streamer2.webp";
-import streamer3 from "./../assets/streamer3.webp";
+import { useEffect, useState } from "react";
+import { streamerData } from "../util/streamerdata";
+import { useNavigate } from "react-router-dom";
+import cpt from "./../assets/streamer1.webp";
 
 const StreamerBar = () => {
+  const nav = useNavigate();
+  const [storedStreamers, setStoredStreamers] = useState([]);
+
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem("streamers")) || [];
+    setStoredStreamers(stored);
+  }, []);
+
   return (
     <div className="streamerbar">
       <div className="streamer_img_wrapper">
-        <img src={streamer1}></img>
-        <img src={streamer2}></img>
-        <img src={streamer3}></img>
+        {streamerData.map((streamer, index) => (
+          <img key={index} src={streamer.image} alt={streamer.value} />
+        ))}
+
+        {storedStreamers.map((streamer, index) => (
+          <img key={index} src={cpt} alt={streamer.value} />
+        ))}
       </div>
-      <Button text={"+"} type={"ADD"} />
+      <Button text={"+"} type={"ADD"} onClick={() => nav("/AddStreamer")} />
     </div>
   );
 };
