@@ -1,4 +1,3 @@
-import "./StreamerBar.css";
 import Button from "./Button";
 ("./Button");
 
@@ -17,17 +16,29 @@ const StreamerBar = () => {
   }, []);
 
   return (
-    <div className="streamerbar">
-      <div className="streamer_img_wrapper">
-        {streamerData.map((streamer, index) => (
-          <img key={index} src={streamer.image} alt={streamer.value} />
-        ))}
-
-        {storedStreamers.map((streamer, index) => (
-          <img key={index} src={cpt} alt={streamer.value} />
-        ))}
-      </div>
-      <Button text={"+"} type={"ADD"} onClick={() => nav("/AddStreamer")} />
+    <div className="flex p-2 pb-0 items-center justify-start">
+      {streamerData.map((streamer, index) => (
+        <img
+          key={index}
+          src={streamer.image}
+          alt={streamer.value}
+          className="rounded-full h-[50px] m-[5px]"
+        />
+      ))}
+      {storedStreamers.map((streamer, index) => (
+        <img
+          key={index}
+          src={cpt}
+          alt={streamer.value}
+          className="rounded-full h-[50px] m-[5px]"
+        />
+      ))}
+      <Button
+        className="items-center"
+        text="+"
+        type="ADD"
+        onClick={() => nav("/AddStreamer")}
+      />
     </div>
   );
 };

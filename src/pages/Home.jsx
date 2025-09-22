@@ -7,9 +7,7 @@ const Home = () => {
   return (
     <div>
       <Header></Header>
-      <div style={{ display: "flex", justifyContent: "flex-start" }}>
-        <StreamerBar></StreamerBar>
-      </div>
+      <StreamerBar></StreamerBar>
       <RecoCalendar></RecoCalendar>
       <Plan></Plan>
     </div>

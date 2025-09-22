@@ -7,6 +7,13 @@
   color: black;
 }
 
+.custom-select__control
+  custom-select__control--is-disabled
+  css-16xfy0z-control {
+  box-sizing: border-box;
+  margin-left: 10px !important;
+}
+
 .custom-select.custom-select__control.custom-select__control--is-focused {
   outline: none;
   box-shadow: none;
