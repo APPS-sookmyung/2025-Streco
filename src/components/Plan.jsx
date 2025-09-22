@@ -1,4 +1,3 @@
-import "./Plan.css";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
@@ -19,34 +18,49 @@ const Plan = () => {
         <div
           key={idx}
           onClick={() => nav("/record")}
-        >{`> ${item.time} | ${item.game}`}</div>
+          className="block mx-[10px] cursor-pointer hover:bg-[#d2d2d2] border-b border-black py-[5px] pr-[10px]"
+        >
+          {`> ${item.time} | ${item.game}`}
+        </div>
       ));
   };
 
   return (
     <div className="plan">
-      <div className="streamerplan">
-        <div className="streamer">
+      <div className="mb-[20px]">
+        <div className="flex items-center">
           <Button text={"Cpt"} type={"STREAMER"} />
-          <Button text={"+"} type={"ADD"} />
+          <Button
+            text={"+"}
+            type={"ADD"}
+            className="w-[25px] h-[25px] m-[5px]"
+          />
         </div>
-        <div className="renderSchedule">{renderSchedule("Cpt")}</div>
+        <div>{renderSchedule("Cpt")}</div>
       </div>
 
-      <div className="streamerplan">
-        <div className="streamer">
+      <div className="mb-[20px]">
+        <div className="flex items-center">
           <Button text={"VanilLa"} type={"STREAMER"} />
-          <Button text={"+"} type={"ADD"} />
+          <Button
+            text={"+"}
+            type={"ADD"}
+            className="w-[25px] h-[25px] m-[5px]"
+          />
         </div>
-        <div className="renderSchedule">{renderSchedule("VanilLa")}</div>
+        <div>{renderSchedule("VanilLa")}</div>
       </div>
 
-      <div className="streamerplan">
-        <div className="streamer">
+      <div className="mb-[20px]">
+        <div className="flex items-center">
           <Button text={"CHORONG"} type={"STREAMER"} />
-          <Button text={"+"} type={"ADD"} />
+          <Button
+            text={"+"}
+            type={"ADD"}
+            className="w-[25px] h-[25px] m-[5px]"
+          />
         </div>
-        <div className="renderSchedule">{renderSchedule("CHORONG")}</div>
+        <div>{renderSchedule("CHORONG")}</div>
       </div>
     </div>
   );

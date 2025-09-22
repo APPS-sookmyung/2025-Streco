@@ -8,17 +8,18 @@ const RecoCalendar = () => {
   const today = new Date();
   const [date, setDate] = useState(today);
   const [activeStartDate, setActiveStartDate] = useState(new Date());
-  const attendDay = ["2025-08-19", "2025-08-22"]; // 특정 날짜 예시
+  const attendDay = ["2025-09-19", "2025-09-22"]; // 특정 날짜 예시
 
   const handleDateChange = (newDate) => {
     setDate(newDate);
   };
 
-  const handleTodayClick = () => {
-    const today = new Date();
-    setActiveStartDate(today);
-    setDate(today);
-  };
+  // 오늘 날짜 조회
+  // const handleTodayClick = () => {
+  //   const today = new Date();
+  //   setActiveStartDate(today);
+  //   setDate(today);
+  // };
 
   return (
     <div className="calendar-wrapper">
