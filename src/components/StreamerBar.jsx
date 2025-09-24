@@ -1,32 +1,23 @@
 import Button from "./Button";
-import { useContext } from "react";
-import { streamerData } from "../util/streamerdata";
 import { useNavigate } from "react-router-dom";
-import cpt from "./../assets/streamer1.webp";
-import { StreamerStateContext } from "../App";
+import { useStreamerState } from "../hooks/useStreamer";
 
 const StreamerBar = () => {
   const nav = useNavigate();
-  const storedStreamers = useContext(StreamerStateContext);
+  const streamers = useStreamerState();
 
   return (
-    <div className="flex p-2 pb-0 items-center justify-start">
-      {streamerData.map((streamer, index) => (
-        <img
-          key={index}
-          src={streamer.image}
-          alt={streamer.value}
-          className="rounded-full h-[50px] m-[5px]"
-        />
-      ))}
-      {storedStreamers.map((streamer, index) => (
-        <img
-          key={index}
-          src={cpt} //임의의 이미지
-          alt={streamer}
-          className="rounded-full h-[50px] m-[5px]"
-        />
-      ))}
+    <div className="flex w-full items-center justify-between p-2 pb-0">
+      <div className="!m-0 flex">
+        {streamers.map((streamer) => (
+          <img
+            key={streamer.id}
+            src={streamer.image}
+            alt={streamer.name}
+            className="m-[5px] h-[50px] rounded-full"
+          />
+        ))}
+      </div>
       <Button
         className="items-center"
         text="+"
