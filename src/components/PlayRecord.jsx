@@ -7,16 +7,17 @@ import {
   positionOptions,
 } from "../util/gamedata";
 
-const PlayRecord = ({ isEditMode }) => {
-  const [selectedGame, setSelectedGame] = useState(null);
-  const [selectedCharacter, setSelectedCharacter] = useState(null);
-  const [selectedPosition, setSelectedPosition] = useState(null);
-  const [matchEnabled, setMatchEnabled] = useState(false);
-  const [score, setScore] = useState({ my: "", enemy: "" });
+const PlayRecord = ({ isEditMode, data, setData }) => {
+  const { game, character, position, memo, matchEnabled, score } = data;
+
   const [imgError, setImgError] = useState(false);
 
-  const characters = selectedGame ? characterOptions[selectedGame.value] : [];
-  const position = selectedGame ? positionOptions[selectedGame.value] : [];
+  useEffect(() => {
+    setImgError(false);
+  }, [game, character]);
+
+  const characters = game?.value ? characterOptions[game.value] : [];
+  const positions = game?.value ? positionOptions[game.value] : [];
 
   function getImgUrl(selectedGame, name) {
     if (!selectedGame || !name) return "";
@@ -26,39 +27,39 @@ const PlayRecord = ({ isEditMode }) => {
     ).href;
   }
 
-  useEffect(() => {
-    setImgError(false);
-  }, [selectedGame, selectedCharacter]);
+  const handleMatchToggle = () => {
+    setData({ ...data, matchEnabled: !matchEnabled });
+  };
 
   return (
     <div>
-      {/* 게임 선택 */}
       <div className="game">
         <SectionTitle text={"# 게임 종류"} />
         <CustomSelect
           options={gameOptions}
-          value={selectedGame}
-          onChange={setSelectedGame}
+          value={game}
+          onChange={(val) =>
+            setData({ ...data, game: val, character: null, position: null })
+          }
           placeholder="게임 선택"
           isDisabled={!isEditMode}
         />
-        {selectedGame?.image && (
+        {game?.image && (
           <img
-            src={selectedGame.image}
-            alt={selectedGame.label}
+            src={game.image}
+            alt={game.label}
             className="m-[10px] h-[150px] rounded-[10px]"
           />
         )}
       </div>
 
-      {/* 주요 플레이 기록 */}
       <div className="gameset">
         <SectionTitle text={"# 주요 플레이 기록"} />
         <div className="flex items-center !ml-[10px] !mb-[10px]">
           <input
             type="checkbox"
             checked={matchEnabled}
-            onChange={() => setMatchEnabled((prev) => !prev)}
+            onChange={handleMatchToggle}
             disabled={!isEditMode}
             className="m-0 h-[25px] w-[25px] rounded-[5px]"
           />
@@ -66,8 +67,10 @@ const PlayRecord = ({ isEditMode }) => {
           <input
             type="number"
             value={score.my}
-            onChange={(e) => setScore({ ...score, my: e.target.value })}
-            disabled={!matchEnabled}
+            onChange={(e) =>
+              setData({ ...data, score: { ...score, my: e.target.value } })
+            }
+            disabled={!isEditMode || !matchEnabled}
             className={`h-[25px] mx-[5px] w-[60px] rounded-[5px] text-[15px] pl-[5px] border ${
               matchEnabled
                 ? "border-black bg-white text-black"
@@ -78,8 +81,10 @@ const PlayRecord = ({ isEditMode }) => {
           <input
             type="number"
             value={score.enemy}
-            onChange={(e) => setScore({ ...score, enemy: e.target.value })}
-            disabled={!matchEnabled}
+            onChange={(e) =>
+              setData({ ...data, score: { ...score, enemy: e.target.value } })
+            }
+            disabled={!isEditMode || !matchEnabled}
             className={`h-[25px] mx-[5px] w-[60px] rounded-[5px] text-[15px] pl-[5px] border ${
               matchEnabled
                 ? "border-black bg-white text-black"
@@ -89,10 +94,10 @@ const PlayRecord = ({ isEditMode }) => {
         </div>
 
         <div className="flex self-start">
-          {selectedGame && selectedCharacter?.value && !imgError && (
+          {game?.value && character?.value && !imgError && (
             <img
-              src={getImgUrl(selectedGame, selectedCharacter.value)}
-              alt={selectedCharacter.label}
+              src={getImgUrl(game, character.value)}
+              alt={character.label}
               onError={() => setImgError(true)}
               className="!ml-[10px] h-[50px] rounded-full"
             />
@@ -100,16 +105,16 @@ const PlayRecord = ({ isEditMode }) => {
           <div className="flex !ml-2.5">
             <CustomSelect
               options={characters}
-              value={selectedCharacter}
-              onChange={setSelectedCharacter}
+              value={character}
+              onChange={(val) => setData({ ...data, character: val })}
               placeholder="캐릭터 선택"
               isDisabled={!isEditMode}
             />
-            {selectedGame && positionOptions[selectedGame.value] && (
+            {game?.value && positionOptions[game.value] && (
               <CustomSelect
-                options={position}
-                value={selectedPosition}
-                onChange={setSelectedPosition}
+                options={positions}
+                value={position}
+                onChange={(val) => setData({ ...data, position: val })}
                 placeholder="포지션 선택"
                 isDisabled={!isEditMode}
               />
@@ -118,7 +123,6 @@ const PlayRecord = ({ isEditMode }) => {
         </div>
       </div>
 
-      {/* 감상 기록 */}
       <div className="diary">
         <SectionTitle text={"# 감상 기록"} />
         <textarea
@@ -126,6 +130,8 @@ const PlayRecord = ({ isEditMode }) => {
           rows={4}
           cols={40}
           disabled={!isEditMode}
+          value={memo || ""}
+          onChange={(e) => setData({ ...data, memo: e.target.value })}
           className="border-0 text-[20px] resize-none overflow-y-scroll w-[425px] h-[200px] mx-[15px] ml-[10px] bg-[#e6e6e6] rounded-[8px] p-[10px]"
         />
       </div>

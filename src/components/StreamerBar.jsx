@@ -1,19 +1,13 @@
 import Button from "./Button";
-("./Button");
-
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { streamerData } from "../util/streamerdata";
 import { useNavigate } from "react-router-dom";
 import cpt from "./../assets/streamer1.webp";
+import { StreamerStateContext } from "../App";
 
 const StreamerBar = () => {
   const nav = useNavigate();
-  const [storedStreamers, setStoredStreamers] = useState([]);
-
-  useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("streamers")) || [];
-    setStoredStreamers(stored);
-  }, []);
+  const storedStreamers = useContext(StreamerStateContext);
 
   return (
     <div className="flex p-2 pb-0 items-center justify-start">
@@ -28,8 +22,8 @@ const StreamerBar = () => {
       {storedStreamers.map((streamer, index) => (
         <img
           key={index}
-          src={cpt}
-          alt={streamer.value}
+          src={cpt} //임의의 이미지
+          alt={streamer}
           className="rounded-full h-[50px] m-[5px]"
         />
       ))}

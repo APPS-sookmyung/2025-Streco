@@ -4,29 +4,15 @@ import moment from "moment";
 import "react-calendar/dist/Calendar.css";
 import "./RecoCalendar.css";
 
-const RecoCalendar = () => {
-  const today = new Date();
-  const [date, setDate] = useState(today);
+const RecoCalendar = ({ selectedDate, onDateChange, recordDates = [] }) => {
   const [activeStartDate, setActiveStartDate] = useState(new Date());
-  const attendDay = ["2025-09-19", "2025-09-22"]; // 특정 날짜 예시
-
-  const handleDateChange = (newDate) => {
-    setDate(newDate);
-  };
-
-  // 오늘 날짜 조회
-  // const handleTodayClick = () => {
-  //   const today = new Date();
-  //   setActiveStartDate(today);
-  //   setDate(today);
-  // };
 
   return (
     <div className="calendar-wrapper">
       <Calendar
         className="custom-calendar"
-        value={date}
-        onChange={handleDateChange}
+        value={selectedDate}
+        onChange={onDateChange}
         formatDay={(locale, date) => moment(date).format("D")}
         formatYear={(locale, date) => moment(date).format("YYYY")}
         formatMonthYear={(locale, date) => moment(date).format("YYYY. MM")}
@@ -43,16 +29,13 @@ const RecoCalendar = () => {
         tileContent={({ date, view }) => {
           if (
             view === "month" &&
-            attendDay.includes(moment(date).format("YYYY-MM-DD"))
+            recordDates.includes(moment(date).format("YYYY-MM-DD"))
           ) {
             return <div className="dot-indicator" />;
           }
           return null;
         }}
       />
-      {/* <div className="today-button" onClick={handleTodayClick}>
-        Today
-      </div> */}
     </div>
   );
 };
