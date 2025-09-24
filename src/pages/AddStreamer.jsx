@@ -52,7 +52,7 @@ const AddStreamer = () => {
             onChange={(e) => setNickname(e.target.value)}
           />
         </div>
-        <Button text={"추가"} type={"ADD"} onClick={handleAdd} />
+        <Button text={"추가"} type={"EDIT_DONE"} onClick={handleAdd} />
       </div>
     </div>
   );
