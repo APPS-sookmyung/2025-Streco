@@ -14,7 +14,6 @@ const initialStreamers = [
   { id: 1, name: "CPT", image: cpt },
   { id: 2, name: "VanilLa", image: vanilla },
   { id: 3, name: "CHORONG", image: chorong },
-  { id: 4, name: "NoImageStreamer", image: null },
 ];
 
 function streamerReducer(state, action) {
