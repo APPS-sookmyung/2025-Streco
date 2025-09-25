@@ -1,23 +1,26 @@
 import Header from "../components/Header";
 import { CgProfile } from "react-icons/cg";
 import Button from "../components/Button";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { StreamerDispatchContext } from "../App";
+import { useStreamerDispatch } from "../hooks/useStreamer";
 
 const AddStreamer = () => {
   const [nickname, setNickname] = useState("");
   const navigate = useNavigate();
-  const { onAddStreamer } = useContext(StreamerDispatchContext);
+  const { onAddStreamer } = useStreamerDispatch();
+
+  const cpt = "src/assets/streamer1.webp";
 
   const handleAdd = () => {
     if (!nickname.trim()) {
       alert("스트리머 이름을 입력해주세요.");
       return;
     }
-
-    onAddStreamer(nickname);
-
+    onAddStreamer({
+      name: nickname,
+      image: cpt,
+    });
     alert("스트리머가 추가되었습니다!");
     setNickname("");
     navigate("/");

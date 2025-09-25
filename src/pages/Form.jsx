@@ -1,18 +1,21 @@
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import StreamerRecord from "../components/StreamerRecord";
 import BroadcastInfo from "../components/BroadcastInfo";
 import PlayRecord from "../components/PlayRecord";
 import TimestampList from "../components/TimestampList";
 import useRecord from "../hooks/useRecord";
-import { ScheduleDispatchContext } from "../App";
+import { useScheduleDispatch } from "../hooks/useSchedule";
+import { useStreamerState } from "../hooks/useStreamer";
 
 const Form = () => {
   const params = useParams();
   const nav = useNavigate();
   const location = useLocation();
-  const { onSaveRecord, onDeleteRecord } = useContext(ScheduleDispatchContext);
+
+  const { onSaveRecord, onDeleteRecord } = useScheduleDispatch();
+  const streamers = useStreamerState();
 
   const curRecordItem = useRecord(params.id);
 
@@ -24,10 +27,18 @@ const Form = () => {
       setRecordData(curRecordItem);
       setIsEditMode(true);
     } else {
-      const initialStreamer = location.state?.streamer || null;
+      const initialStreamerName = location.state?.streamer || null;
+
+      const streamerInfo = streamers.find(
+        (it) => it.name === initialStreamerName
+      );
+
       setRecordData({
         id: params.id,
-        streamer: { name: initialStreamer, image: "" },
+        streamer: {
+          name: initialStreamerName,
+          image: streamerInfo ? streamerInfo.image : "",
+        },
         broadcastInfo: { date: null, startTime: null, link: "" },
         playRecord: {
           game: null,
@@ -42,12 +53,16 @@ const Form = () => {
       });
       setIsEditMode(true);
     }
-  }, [params.id, curRecordItem, location.state]);
+  }, [params.id, curRecordItem, location.state, streamers]);
 
   const handleSave = () => {
-    const streamerName = recordData.streamer.name;
-    onSaveRecord(streamerName, recordData);
-    setIsEditMode(false);
+    if (!recordData.streamer.name) {
+      alert("스트리머 정보가 없습니다.");
+      nav("/");
+      return;
+    }
+    onSaveRecord(recordData.streamer.name, recordData);
+    nav("/");
   };
 
   const handleDelete = () => {

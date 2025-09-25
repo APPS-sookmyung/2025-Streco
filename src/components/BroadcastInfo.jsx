@@ -18,7 +18,8 @@ const BroadcastInfo = ({ isEditMode, data, setData }) => {
           placeholderText="날짜 선택"
           popperPlacement="bottom-start"
           disabled={!isEditMode}
-          className="bg-white text-[15px] rounded-[5px] border border-gray-300 px-2 py-1 w-[120px] mr-[10px] h-[30px]"
+          className="bg-white m-0 text-[15px] rounded-[10px] border border-gray-300 px-2 py-1 w-[120px] mr-[10px] h-[30px]"
+          popperClassName="datepicker-popper"
         />
 
         <DatePicker
@@ -31,7 +32,8 @@ const BroadcastInfo = ({ isEditMode, data, setData }) => {
           dateFormat="HH:mm"
           placeholderText="시간 선택"
           disabled={!isEditMode}
-          className="bg-white text-[15px] rounded-[5px] border border-gray-300 px-2 py-1 w-[100px] mr-[10px] h-[30px]"
+          className="bg-white m-0 text-[15px] rounded-[10px] border border-gray-300 px-2 py-1 w-[100px] mr-[10px] h-[30px]"
+          popperClassName="timepicker-popper"
         />
       </div>
 
