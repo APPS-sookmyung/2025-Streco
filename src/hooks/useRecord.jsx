@@ -1,5 +1,3 @@
-// src/hooks/useRecord.jsx (최종 완성본)
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useScheduleState } from "../hooks/useSchedule";
