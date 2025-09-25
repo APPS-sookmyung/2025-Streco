@@ -53,7 +53,7 @@ const Plan = ({ selectedDate }) => {
                     <div
                       key={item.id}
                       onClick={() => nav(`/form/${item.id}`)}
-                      className="block flex bg-[#e2e2e2] justify-between shadow-[3px_3px_8px_0_rgba(0,0,0,0.15)] rounded-lg !mx-[10px] cursor-pointer hover:bg-[#28242a] hover:text-gray-50 py-[5px] pr-[10px]"
+                      className="flex bg-[#e2e2e2] justify-between shadow-[3px_3px_8px_0_rgba(0,0,0,0.15)] rounded-lg !mx-[10px] cursor-pointer hover:bg-[#28242a] hover:text-gray-50 py-[5px] pr-[10px]"
                     >
                       <div className="!mx-4 !my-1">
                         <span className="text-xs pr-4 text-gray-500">{`${broadcastTime}`}</span>
