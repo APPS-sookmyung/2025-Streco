@@ -22,6 +22,12 @@ const Form = () => {
   const [recordData, setRecordData] = useState(null);
   const [isEditMode, setIsEditMode] = useState(false);
 
+  const [data, setData] = useState({
+    date: new Date(),
+    startTime: new Date(),
+    timestamps: [],
+  });
+
   useEffect(() => {
     if (curRecordItem) {
       setRecordData(curRecordItem);
@@ -105,7 +111,9 @@ const Form = () => {
         setList={(newData) =>
           setRecordData({ ...recordData, timestampList: newData })
         }
+        broadcastInfo={recordData.broadcastInfo}
       />
+      <div className="h-10"></div>
     </div>
   );
 };
