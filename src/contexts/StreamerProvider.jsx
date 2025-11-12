@@ -1,4 +1,4 @@
-import { useReducer, useEffect, useRef } from "react";
+import { useReducer, useEffect, useRef, useCallback } from "react";
 import {
   StreamerStateContext,
   StreamerDispatchContext,
@@ -52,23 +52,26 @@ export default function StreamerProvider({ children }) {
     dispatch({ type: "INIT", data: sanitizedStreamers });
   }, []);
 
-  const onAddStreamer = (data) => {
-    const isStreamerExists = state.some(
-      (streamer) => streamer.name.toLowerCase() === data.name.toLowerCase()
-    );
-    if (isStreamerExists) {
-      alert("이미 존재하는 스트리머입니다.");
-      return;
-    }
-    dispatch({
-      type: "ADD",
-      data: {
-        id: idRef.current++,
-        ...data,
-        image: data.image || DEFAULT_IMAGE,
-      },
-    });
-  };
+  const onAddStreamer = useCallback(
+    (data) => {
+      const isStreamerExists = state.some(
+        (streamer) => streamer.name.toLowerCase() === data.name.toLowerCase()
+      );
+      if (isStreamerExists) {
+        alert("이미 존재하는 스트리머입니다.");
+        return;
+      }
+      dispatch({
+        type: "ADD",
+        data: {
+          id: idRef.current++,
+          ...data,
+          image: data.image || DEFAULT_IMAGE,
+        },
+      });
+    },
+    [state]
+  );
 
   return (
     <StreamerStateContext.Provider value={state}>
