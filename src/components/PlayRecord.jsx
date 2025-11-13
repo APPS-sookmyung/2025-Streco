@@ -35,27 +35,29 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
     <div>
       <div className="game">
         <SectionTitle text={"# 게임 종류"} />
-        <CustomSelect
-          options={gameOptions}
-          value={game}
-          onChange={(val) =>
-            setData({ ...data, game: val, character: null, position: null })
-          }
-          placeholder="게임 선택"
-          isDisabled={!isEditMode}
-        />
-        {game?.image && (
-          <img
-            src={game.image}
-            alt={game.label}
-            className="m-[10px] h-[150px] rounded-[10px]"
+        <div className="!ml-[15px]">
+          <CustomSelect
+            options={gameOptions}
+            value={game}
+            onChange={(val) =>
+              setData({ ...data, game: val, character: null, position: null })
+            }
+            placeholder="게임 선택"
+            isDisabled={!isEditMode}
           />
-        )}
+          {game?.image && (
+            <img
+              src={game.image}
+              alt={game.label}
+              className="m-[10px] h-[150px] rounded-[10px]"
+            />
+          )}
+        </div>
       </div>
 
       <div className="gameset">
         <SectionTitle text={"# 주요 플레이 기록"} />
-        <div className="flex items-center !ml-[10px] !mb-[10px]">
+        <div className="flex items-center !ml-[25px] !mb-[10px]">
           <input
             type="checkbox"
             checked={matchEnabled}
@@ -93,7 +95,7 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
           />
         </div>
 
-        <div className="flex self-start items-center">
+        <div className="flex self-start items-center !ml-[15px]">
           {game?.value && character?.value && !imgError && (
             <img
               src={getImgUrl(game, character.value)}
@@ -125,15 +127,17 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
 
       <div className="diary">
         <SectionTitle text={"# 감상 기록"} />
-        <textarea
-          name="diarycontents"
-          rows={4}
-          cols={40}
-          disabled={!isEditMode}
-          value={memo || ""}
-          onChange={(e) => setData({ ...data, memo: e.target.value })}
-          className="border-0 text-[15px] resize-none overflow-y-scroll w-[425px] h-[200px] mx-[15px] ml-[10px] bg-[#e6e6e6] rounded-[8px] p-[10px]"
-        />
+        <div className="!ml-[15px]">
+          <textarea
+            name="diarycontents"
+            rows={4}
+            cols={40}
+            disabled={!isEditMode}
+            value={memo || ""}
+            onChange={(e) => setData({ ...data, memo: e.target.value })}
+            className="border-0 text-[15px] resize-none overflow-y-scroll w-[425px] h-[200px] mx-[15px] ml-[10px] bg-[#e6e6e6] rounded-[8px] p-[10px]"
+          />
+        </div>
       </div>
     </div>
   );

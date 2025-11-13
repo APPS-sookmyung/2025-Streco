@@ -85,7 +85,7 @@ const TimestampList = ({ list, setList, broadcastInfo, isEditMode }) => {
   return (
     <div>
       <SectionTitle text={"# 타임스탬프"} />
-      <div className="ml-[10px]">
+      <div className="!ml-[15px]">
         {list.length === 0 ? (
           <div className="text-[14px] text-[#888] mb-[15px]"></div>
         ) : (
@@ -101,7 +101,7 @@ const TimestampList = ({ list, setList, broadcastInfo, isEditMode }) => {
         )}
       </div>
 
-      <div className="!-mt-[5px]">
+      <div className="!-mt-[5px] !ml-[15px]">
         <Button
           text={"+"}
           type="ADD"

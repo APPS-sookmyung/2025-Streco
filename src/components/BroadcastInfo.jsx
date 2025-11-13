@@ -10,7 +10,7 @@ const BroadcastInfo = ({ isEditMode, data, setData }) => {
       <SectionTitle text={"# 방송 시작 시간"} />
 
       {/* 날짜/시간 선택 */}
-      <div className="flex !mb-[10px] items-start justify-start">
+      <div className="flex !mb-[10px] !ml-[15px] items-start justify-start">
         <DatePicker
           selected={data.date}
           onChange={(date) => setData({ ...data, date })}
@@ -18,8 +18,8 @@ const BroadcastInfo = ({ isEditMode, data, setData }) => {
           placeholderText="날짜 선택"
           popperPlacement="bottom-start"
           disabled={!isEditMode}
-          className="bg-white m-0 text-[15px] rounded-[10px] border border-gray-300 px-2 py-1 w-[120px] mr-[10px] h-[30px]"
-          popperClassName="datepicker-popper"
+          className="bg-white m-0 text-[15px] rounded-[8px] border border-gray-300 px-2 py-1 w-[120px] mr-[10px] h-[30px]"
+          popperClassName="datepicker-popper ml-[15px]"
           portalId="root-portal"
         />
 
@@ -33,13 +33,13 @@ const BroadcastInfo = ({ isEditMode, data, setData }) => {
           dateFormat="HH:mm"
           placeholderText="시간 선택"
           disabled={!isEditMode}
-          className="bg-white m-0 text-[15px] rounded-[10px] border border-gray-300 px-2 py-1 w-[100px] mr-[10px] h-[30px]"
+          className="bg-white m-0 text-[15px] rounded-[8px] border border-gray-300 px-2 py-1 w-[100px] mr-[10px] h-[30px]"
           popperClassName="timepicker-popper"
         />
       </div>
 
       {/* 스트림 링크 */}
-      <div className="flex items-center ml-[10px]">
+      <div className="flex items-center !ml-[15px]">
         <GoPaperclip className="h-[25px] w-[25px]" />
         <textarea
           name="streamlink"
