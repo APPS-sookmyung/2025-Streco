@@ -22,15 +22,20 @@ const Form = () => {
   const [recordData, setRecordData] = useState(null);
   const [isEditMode, setIsEditMode] = useState(false);
 
-  const [data, setData] = useState({
-    date: new Date(),
-    startTime: new Date(),
-    timestamps: [],
-  });
-
   useEffect(() => {
     if (curRecordItem) {
-      setRecordData(curRecordItem);
+      setRecordData({
+        ...curRecordItem,
+        broadcastInfo: {
+          ...curRecordItem.broadcastInfo,
+          date: curRecordItem.broadcastInfo.date
+            ? new Date(curRecordItem.broadcastInfo.date)
+            : new Date(),
+          startTime: curRecordItem.broadcastInfo.startTime
+            ? new Date(curRecordItem.broadcastInfo.startTime)
+            : new Date(),
+        },
+      });
       setIsEditMode(true);
     } else {
       const initialStreamerName = location.state?.streamer || null;
@@ -45,7 +50,11 @@ const Form = () => {
           name: initialStreamerName,
           image: streamerInfo ? streamerInfo.image : "",
         },
-        broadcastInfo: { date: null, startTime: null, link: "" },
+        broadcastInfo: {
+          date: new Date(),
+          startTime: new Date(),
+          link: "",
+        },
         playRecord: {
           game: null,
           character: null,
