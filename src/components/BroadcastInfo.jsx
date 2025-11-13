@@ -10,7 +10,7 @@ const BroadcastInfo = ({ isEditMode, data, setData }) => {
       <SectionTitle text={"# 방송 시작 시간"} />
 
       {/* 날짜/시간 선택 */}
-      <div className="flex !mb-[10px] items-start">
+      <div className="flex !mb-[10px] items-start justify-start">
         <DatePicker
           selected={data.date}
           onChange={(date) => setData({ ...data, date })}
@@ -20,6 +20,7 @@ const BroadcastInfo = ({ isEditMode, data, setData }) => {
           disabled={!isEditMode}
           className="bg-white m-0 text-[15px] rounded-[10px] border border-gray-300 px-2 py-1 w-[120px] mr-[10px] h-[30px]"
           popperClassName="datepicker-popper"
+          portalId="root-portal"
         />
 
         <DatePicker

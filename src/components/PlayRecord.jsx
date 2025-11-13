@@ -93,7 +93,7 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
           />
         </div>
 
-        <div className="flex self-start">
+        <div className="flex self-start items-center">
           {game?.value && character?.value && !imgError && (
             <img
               src={getImgUrl(game, character.value)}
@@ -132,7 +132,7 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
           disabled={!isEditMode}
           value={memo || ""}
           onChange={(e) => setData({ ...data, memo: e.target.value })}
-          className="border-0 text-[20px] resize-none overflow-y-scroll w-[425px] h-[200px] mx-[15px] ml-[10px] bg-[#e6e6e6] rounded-[8px] p-[10px]"
+          className="border-0 text-[15px] resize-none overflow-y-scroll w-[425px] h-[200px] mx-[15px] ml-[10px] bg-[#e6e6e6] rounded-[8px] p-[10px]"
         />
       </div>
     </div>

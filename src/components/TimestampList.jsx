@@ -10,9 +10,12 @@ const TimestampList = ({ list, setList, broadcastInfo, isEditMode }) => {
 
   let broadcastStart = null;
   if (date && startTime) {
-    broadcastStart = new Date(date);
-    broadcastStart.setHours(startTime.getHours());
-    broadcastStart.setMinutes(startTime.getMinutes());
+    const dateObj = new Date(date);
+    const startTimeObj = new Date(startTime);
+
+    broadcastStart = new Date(dateObj);
+    broadcastStart.setHours(startTimeObj.getHours());
+    broadcastStart.setMinutes(startTimeObj.getMinutes());
     broadcastStart.setSeconds(0);
   }
 
@@ -84,9 +87,7 @@ const TimestampList = ({ list, setList, broadcastInfo, isEditMode }) => {
       <SectionTitle text={"# 타임스탬프"} />
       <div className="ml-[10px]">
         {list.length === 0 ? (
-          <div className="text-[14px] text-[#888] mb-[15px]">
-            추가된 타임스탬프가 없습니다.
-          </div>
+          <div className="text-[14px] text-[#888] mb-[15px]"></div>
         ) : (
           list.map((item) => (
             <TimestampItem

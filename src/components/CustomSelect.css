@@ -7,6 +7,10 @@
   color: black;
 }
 
+.custom-select__control css-13cymwt-control {
+  border-radius: 8px;
+}
+
 .custom-select__control
   custom-select__control--is-disabled
   css-16xfy0z-control {
