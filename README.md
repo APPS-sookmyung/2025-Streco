@@ -5,4 +5,4 @@
 ---
 
 ## 🚀 배포 링크
-- [[(2025-streco-ehgqsh2sh-limyujins-projects.vercel.app)](https://2025-streco-ehgqsh2sh-limyujins-projects.vercel.app/) ](https://2025-streco.vercel.app/)
+- (https://2025-streco.vercel.app/)
