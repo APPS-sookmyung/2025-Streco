@@ -24,10 +24,12 @@ const StreamerRecord = ({
           <img
             src={streamer.image}
             alt={streamer.name}
-            className="rounded-full h-[80px] m-[5px]"
+            className="rounded-full h-[70px] m-[5px]"
           />
         )}
-        <h3 className="self-center font-bold text-white">{streamer.name}</h3>
+        <h2 className="self-center font-bold text-white ml-2">
+          {streamer.name}
+        </h2>
       </div>
 
       <div className="flex flex-row !m-0">

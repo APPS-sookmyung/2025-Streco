@@ -83,7 +83,7 @@ const AddStreamer = () => {
           type="text"
           name="streamer-nickname"
           placeholder="스트리머 닉네임 입력"
-          className="w-64 p-2 my-4 rounded-lg text-center border-1 border-gray-500 text-white text-base focus:outline-none focus:ring-1 focus:ring-[#CD0000] focus:border-transparent"
+          className="w-64 p-2 my-4 rounded-lg text-center border-1 border-white/10 text-white text-base focus:outline-none focus:ring-1 focus:ring-[#CD0000] focus:border-transparent"
           value={nickname}
           onChange={(e) => setNickname(e.target.value)}
         />

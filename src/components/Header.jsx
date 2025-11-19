@@ -6,7 +6,7 @@ const Header = () => {
   const nav = useNavigate();
 
   return (
-    <header className="flex w-full py-5 border-b border-[#e2e2e2] justify-between items-center">
+    <header className="flex w-full py-5 border-b border-white/10 justify-between items-center">
       <img
         src={logo}
         onClick={() => nav("/")}
