@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Form from "./pages/Form";
 import Notfound from "./pages/Notfound";
 import AddStreamer from "./pages/AddStreamer";
+import AllStreamers from "./pages/AllStreamers";
 
 import ScheduleProvider from "./contexts/ScheduleProvider";
 import StreamerProvider from "./contexts/StreamerProvider";
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/form/:id?" element={<Form />} />
           <Route path="/addStreamer" element={<AddStreamer />} />
+          <Route path="/allStreamers" element={<AllStreamers />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </StreamerProvider>

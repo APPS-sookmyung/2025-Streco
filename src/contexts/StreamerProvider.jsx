@@ -25,6 +25,11 @@ function streamerReducer(state, action) {
       localStorage.setItem("streamers", JSON.stringify(nextState));
       return nextState;
     }
+    case "DELETE": {
+      const nextState = state.filter((streamer) => streamer.id !== action.id);
+      localStorage.setItem("streamers", JSON.stringify(nextState));
+      return nextState;
+    }
     default:
       return state;
   }
@@ -73,9 +78,15 @@ export default function StreamerProvider({ children }) {
     [state]
   );
 
+  const onDeleteStreamer = useCallback((id) => {
+    dispatch({ type: "DELETE", id });
+  }, []);
+
   return (
     <StreamerStateContext.Provider value={state}>
-      <StreamerDispatchContext.Provider value={{ onAddStreamer }}>
+      <StreamerDispatchContext.Provider
+        value={{ onAddStreamer, onDeleteStreamer }}
+      >
         {children}
       </StreamerDispatchContext.Provider>
     </StreamerStateContext.Provider>
