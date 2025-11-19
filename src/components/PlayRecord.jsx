@@ -65,7 +65,7 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
             disabled={!isEditMode}
             className="m-0 h-[25px] w-[25px] rounded-[5px]"
           />
-          <span className="mx-[10px] text-center">경기</span>
+          <span className="mx-[10px] text-center text-white">경기</span>
           <input
             type="number"
             value={score.my}

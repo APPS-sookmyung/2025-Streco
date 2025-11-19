@@ -1,4 +1,4 @@
-import logo from "../assets/logo.webp";
+import logo from "../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {

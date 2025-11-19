@@ -27,7 +27,7 @@ const StreamerRecord = ({
             className="rounded-full h-[80px] m-[5px]"
           />
         )}
-        <h3 className="self-center font-bold">{streamer.name}</h3>
+        <h3 className="self-center font-bold text-white">{streamer.name}</h3>
       </div>
 
       <div className="flex flex-row !m-0">

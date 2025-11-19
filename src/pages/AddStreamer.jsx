@@ -83,7 +83,7 @@ const AddStreamer = () => {
           type="text"
           name="streamer-nickname"
           placeholder="스트리머 닉네임 입력"
-          className="w-64 p-2 my-4 shadow-[3px_3px_8px_0_rgba(0,0,0,0.15)] rounded-lg text-center text-base focus:outline-none focus:ring-1 focus:ring-gray-400"
+          className="w-64 p-2 my-4 rounded-lg text-center border-1 border-gray-500 text-white text-base focus:outline-none focus:ring-1 focus:ring-[#CD0000] focus:border-transparent"
           value={nickname}
           onChange={(e) => setNickname(e.target.value)}
         />
@@ -99,75 +99,6 @@ const AddStreamer = () => {
       </div>
     </div>
   );
-  // return (
-  //   <div className="addstreamer">
-  //     <Header />
-  //     <div
-  //       className="streamerinfo"
-  //       style={{
-  //         display: "flex",
-  //         alignItems: "center",
-  //         justifyContent: "space-between",
-  //         padding: "15px",
-  //         width: "445px",
-  //       }}
-  //     >
-  //       <div
-  //         style={{
-  //           display: "flex",
-  //           alignItems: "center",
-  //           marginLeft: "0",
-  //         }}
-  //       >
-  //         <div className="relative flex-col">
-  //           {image ? (
-  //             <img
-  //               src={image}
-  //               alt="스트리머 프로필 미리보기"
-  //               style={{
-  //                 height: "50px",
-  //                 width: "50px",
-  //                 borderRadius: "50%",
-  //                 objectFit: "cover",
-  //               }}
-  //             />
-  //           ) : (
-  //             <CgProfile
-  //               style={{ height: "50px", width: "50px", marginRight: "10px" }}
-  //             />
-  //           )}
-  //         </div>
-
-  //         <input
-  //           type="file"
-  //           accept="image/*"
-  //           ref={fileInputRef}
-  //           onChange={handleFileChange}
-  //           style={{ display: "none" }}
-  //         />
-
-  //         <input
-  //           type="text"
-  //           name="streamerinfo"
-  //           placeholder="스트리머 이름 입력"
-  //           style={{
-  //             fontSize: "14px",
-  //             padding: "6px 8px",
-  //             height: "20px",
-  //           }}
-  //           value={nickname}
-  //           onChange={(e) => setNickname(e.target.value)}
-  //         />
-  //       </div>
-
-  //       <Button text={"추가"} type={"EDIT_DONE"} onClick={handleAdd} />
-  //     </div>
-  //     {/* "import images" 버튼 및 숨겨진 파일 인풋 */}
-  //     <div className="p-4 rounded-md" onClick={PressPhotoButton}>
-  //       {"이미지 \n 불러오기"}
-  //     </div>
-  //   </div>
-  // );
 };
 
 export default AddStreamer;
