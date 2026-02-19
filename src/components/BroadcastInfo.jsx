@@ -10,7 +10,7 @@ const BroadcastInfo = ({ isEditMode, data, setData }) => {
       <SectionTitle text={"# 방송 시작 시간"} />
 
       {/* 날짜/시간 선택 */}
-      <div className="flex !mb-[10px] !ml-[15px] items-start justify-start">
+      <div className="w-[95%] grid grid-cols-2 !mb-[10px] !ml-[15px] items-start justify-start text-white text-[15px]">
         <DatePicker
           selected={data.date}
           onChange={(date) => setData({ ...data, date })}
@@ -18,7 +18,7 @@ const BroadcastInfo = ({ isEditMode, data, setData }) => {
           placeholderText="날짜 선택"
           popperPlacement="bottom-start"
           disabled={!isEditMode}
-          className="bg-white m-0 text-[15px] rounded-[8px] border border-gray-300 px-2 py-1 w-[120px] mr-[10px] h-[30px]"
+          className="rounded-[4px] border border-gray-300 px-2 py-1 mr-[10px] h-[35px] w-full"
           popperClassName="datepicker-popper ml-[15px]"
           portalId="root-portal"
         />
@@ -33,22 +33,24 @@ const BroadcastInfo = ({ isEditMode, data, setData }) => {
           dateFormat="HH:mm"
           placeholderText="시간 선택"
           disabled={!isEditMode}
-          className="bg-white m-0 text-[15px] rounded-[8px] border border-gray-300 px-2 py-1 w-[100px] mr-[10px] h-[30px]"
+          className="rounded-[4px] border border-gray-300 px-2 py-1 mr-[10px] h-[35px] w-full"
           popperClassName="timepicker-popper"
           portalId="root-portal"
         />
       </div>
 
       {/* 스트림 링크 */}
-      <div className="flex items-center !ml-[15px]">
-        <GoPaperclip className="h-[25px] w-[25px] text-white" />
-        <textarea
-          name="streamlink"
-          value={data.link || ""}
-          onChange={(e) => setData({ ...data, link: e.target.value })}
-          disabled={!isEditMode}
-          className="border-0 border-b border-gray-500 text-[15px] resize-none overflow-hidden w-full h-[20px] pt-[5px] mt-[5px] ml-[5px] mr-[20px] align-middle text-white"
-        />
+      <div className="flex items-center !ml-[15px] text-white">
+        <GoPaperclip className="h-[25px] w-[25px] " />
+        <div className="border-b border-gray-500 w-full">
+          <textarea
+            name="streamlink"
+            value={data.link || ""}
+            onChange={(e) => setData({ ...data, link: e.target.value })}
+            disabled={!isEditMode}
+            className="resize-none overflow-hidden w-full h-[20px] pb-2 mt-3 ml-[5px] mr-[20px]"
+          />
+        </div>
       </div>
     </div>
   );

@@ -1,24 +1,17 @@
-.custom-select.custom-select__control {
-  background-color: white;
-  border: 1px solid #900;
-  border-radius: 8px;
+.custom-select .custom-select__control {
+  border: 1px solid white;
+  border-radius: 4px;
   padding: 2px 4px;
   box-shadow: none;
-  color: black;
+  color: white;
+  background-color: #1a1a1a;
 }
 
-.custom-select__control css-13cymwt-control {
-  border-radius: 8px;
+.custom-select .custom-select__control:hover {
+  border: 1px solid #900;
 }
 
-.custom-select__control
-  custom-select__control--is-disabled
-  css-16xfy0z-control {
-  box-sizing: border-box;
-  margin-left: 10px !important;
-}
-
-.custom-select.custom-select__control.custom-select__control--is-focused {
+.custom-select .custom-select__control.custom-select__control--is-focused {
   outline: none;
   box-shadow: none;
   border-color: rgb(207, 131, 131);
@@ -26,9 +19,21 @@
   box-shadow: 0 0 0 1px #b30000;
 }
 
+.custom-select .custom-select__input-container {
+  color: white !important;
+}
+
+.custom-select .custom-select__input {
+  color: white !important;
+}
+
+.custom-select .custom-select__single-value {
+  color: white;
+}
+
 .custom-select .custom-select__menu {
   width: 425px;
-  background-color: white;
+  background-color: black;
   border-radius: 8px;
   border: 1px solid #900;
   overflow: hidden;
@@ -37,8 +42,8 @@
 }
 
 .custom-select .custom-select__menu .custom-select__option {
-  background-color: white;
-  color: black;
+  color: white;
+  background-color: black;
 }
 
 .custom-select

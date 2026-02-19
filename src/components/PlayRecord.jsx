@@ -135,7 +135,8 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
             disabled={!isEditMode}
             value={memo || ""}
             onChange={(e) => setData({ ...data, memo: e.target.value })}
-            className="border-0 text-[15px] resize-none overflow-y-scroll w-[425px] h-[200px] mx-[15px] ml-[10px] bg-[#e6e6e6] rounded-[8px] p-[10px]"
+            placeholder="감상을 입력하세요."
+            className="border-0 text-[15px] resize-none overflow-y-scroll w-[425px] h-[200px] mx-[15px] ml-[10px] bg-[#7b7b7b] rounded-[4px] p-[10px] text-white"
           />
         </div>
       </div>
