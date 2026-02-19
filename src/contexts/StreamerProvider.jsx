@@ -4,16 +4,21 @@ import {
   StreamerDispatchContext,
 } from "./streamerContext.js";
 
-import cpt from "../assets/streamer1.webp";
-import vanilla from "../assets/streamer2.webp";
-import chorong from "../assets/streamer3.webp";
+import streamer from "../assets/streamer-default.svg";
+import doran from "../assets/doran.svg";
+import oner from "../assets/oner.svg";
+import faker from "../assets/faker.svg";
+import peyz from "../assets/peyz.svg";
+import keria from "../assets/keria.svg";
 
-const DEFAULT_IMAGE = cpt;
+const DEFAULT_IMAGE = streamer;
 
 const initialStreamers = [
-  { id: 1, name: "CPT", image: cpt },
-  { id: 2, name: "VanilLa", image: vanilla },
-  { id: 3, name: "CHORONG", image: chorong },
+  { id: 1, name: "Doran", image: doran },
+  { id: 2, name: "Oner", image: oner },
+  { id: 3, name: "Faker", image: faker },
+  { id: 4, name: "Peyz", image: peyz },
+  { id: 5, name: "Keria", image: keria },
 ];
 
 function streamerReducer(state, action) {
