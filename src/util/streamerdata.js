@@ -1,8 +1,8 @@
-import doran from "../assets/doran.svg";
-import oner from "../assets/oner.svg";
-import faker from "../assets/faker.svg";
-import peyz from "../assets/peyz.svg";
-import keria from "../assets/keria.svg";
+import doran from "../assets/doran.webp";
+import oner from "../assets/oner.webp";
+import faker from "../assets/faker.webp";
+import peyz from "../assets/peyz.webp";
+import keria from "../assets/keria.webp";
 
 export const streamerData = [
   { value: "Doran", image: doran },
