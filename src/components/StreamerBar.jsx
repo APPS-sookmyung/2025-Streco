@@ -10,9 +10,8 @@ const StreamerBar = () => {
     <div className="flex w-full items-center justify-between p-2 pb-1">
       <div className="!m-0 flex">
         {streamers.map((streamer) => (
-          <div className="flex flex-col items-center justify-center">
+          <div key={streamer.id} className="flex flex-col items-center justify-center">
             <img
-              key={streamer.id}
               src={streamer.image}
               alt={streamer.name}
               className="m-[5px] h-[50px] rounded-full"
@@ -21,6 +20,7 @@ const StreamerBar = () => {
           </div>
         ))}
       </div>
+      
       <Button
         className="items-center"
         text="+"
