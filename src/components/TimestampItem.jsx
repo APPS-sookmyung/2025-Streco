@@ -6,10 +6,10 @@ const TimestampItem = ({ item, startTime, onEdit, onDelete }) => {
   const realTime = formatTime(item.timestampTime);
 
   return (
-    <div className="relative !ml-[20px] pl-[2px] border-l-2 border-[#ccc]">
+    <div className="relative ml-2 md:ml-5 pl-[2px] border-l-2 border-[#ccc]">
       <div className="relative flex items-start justify-between mb-[16px] last:mb-0">
         {/* marker */}
-        <div className="absolute left-[-9px] w-[12px] h-[12px] bg-[#CD0000] rounded-full" />
+        <div className="absolute left-[-8px] w-[12px] h-[12px] bg-[#CD0000] rounded-full" />
 
         {/* content */}
         <div className="!ml-[10px] flex-grow">

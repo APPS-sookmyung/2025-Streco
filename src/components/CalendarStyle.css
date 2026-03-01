@@ -1,6 +1,7 @@
 .calender-wrapper {
-  width: 445px;
-  height: 426px;
+  width: 100%;
+  padding: 0 20px;
+  height: auto;
   display: flex;
   justify-content: center;
   position: relative;
@@ -12,14 +13,21 @@
   border-radius: 0.5rem;
   padding: 3% 5%;
   background-color: white;
-  width: 80%;
+  width: 100%;
+  max-width: 800px !important; /* 라이브러리 기본 max-width 무시 */
+  border: none;
 }
 
 /* 전체 클릭 비활성화 수정 */
 .react-calendar__tile {
+  padding: 2% 0;
+  aspect-ratio: 1 / 1; /* 화면이 줄어들어도 날짜 칸을 정사각형으로 유지 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   pointer-events: auto;
   position: relative;
-  /* background-color: transparent !important; */
 }
 
 /* 호버 이벤트 제거 */
@@ -181,7 +189,27 @@
   width: 0.3rem;
   height: 0.3rem;
   position: absolute;
-  top: 70%; /* 날짜 바로 아래 */
+  bottom: 10%;
   left: 50%;
-  transform: translateX(-50%); /* 수평 중앙 정렬 유지 */
+  transform: translateX(-50%);
+}
+
+/* 미디어 쿼리 추가 */
+
+@media (max-width: 768px) {
+  .react-calendar__tile {
+    font-size: 0.85rem;
+  }
+
+  .react-calendar__tile--now::after {
+    width: 25px;
+    height: 25px;
+  }
+
+  .today-button {
+    top: -40px;
+    right: 20px;
+    width: 70px;
+    font-size: 0.75rem;
+  }
 }

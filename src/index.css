@@ -5,36 +5,33 @@
   --color-red-hover: #ff6666;
 }
 
+@media (min-width: 1024px) {
+  #root {
+    padding: 0px 40px;
+  }
+}
+
 html,
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0px;
   width: 100%;
   background-color: #1a1a1a;
-  display: flex;
-  width: -webkit-fill-available;
   scrollbar-gutter: stable;
 }
 
 #root {
   background-color: #1a1a1a;
-  max-width: 768px;
   width: 100%;
   margin: 0 auto;
-  /* height: -webkit-fill-available; */
   min-height: 100vh;
-  height: 100%;
-  padding: 0px 16px;
+  padding: 0px 20px;
   display: flex;
+  flex-direction: column;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
 }
 
-div {
-  margin: 0 auto;
-}
-
 /* DatePicker 화면 이동 현상 방지 */
-
 #root-portal {
   position: absolute;
   top: 0;
@@ -60,5 +57,20 @@ div {
 .overflow-y-scroll::-webkit-scrollbar-thumb {
   border-radius: 9999px;
   background: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  height: 7px;
+  padding-top: 2px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: rgba(87, 87, 87, 0.4);
   cursor: pointer;
 }

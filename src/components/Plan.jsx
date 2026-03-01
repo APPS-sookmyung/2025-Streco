@@ -26,7 +26,7 @@ const Plan = ({ selectedDate }) => {
       {streamers.map((streamer) => {
         const recordsForSelectedDate = getScheduleForDate(streamer.name);
         return (
-          <div key={streamer.id} className="mb-[20px]">
+          <div key={streamer.id} className="mb-0 md:mb-5">
             <div className="flex items-center">
               <Button text={streamer.name} type="STREAMER" />
               <Button
@@ -46,25 +46,25 @@ const Plan = ({ selectedDate }) => {
                   const broadcastTime = item.broadcastInfo.startTime
                     ? new Date(item.broadcastInfo.startTime).toLocaleTimeString(
                         [],
-                        { hour: "2-digit", minute: "2-digit" }
+                        { hour: "2-digit", minute: "2-digit" },
                       )
                     : "시간 정보 없음";
                   return (
                     <div
                       key={item.id}
                       onClick={() => nav(`/form/${item.id}`)}
-                      className="flex bg-[#e2e2e2] justify-between shadow-[3px_3px_8px_0_rgba(0,0,0,0.15)] rounded-lg !mx-[10px] cursor-pointer hover:bg-[#28242a] hover:text-gray-50 py-[5px] pr-[10px]"
+                      className="flex items-center bg-[#e2e2e2] justify-between shadow-[3px_3px_8px_0_rgba(0,0,0,0.15)] rounded-lg mx-0 my-1 md:my-2 md:mx-2.5 cursor-pointer hover:bg-[#28242a] hover:text-gray-50 py-1.25 md:py-2.5 pr-2.5 transition-colors"
                     >
-                      <div className="!mx-4 !my-1">
-                        <span className="text-xs pr-4 text-gray-500">{`${broadcastTime}`}</span>
-                        <span className="font-bold">{`${gameName}`}</span>
+                      <div className="flex items-center mx-4 my-1">
+                        <span className="pr-4 text-xs text-gray-500 md:text-base">{`${broadcastTime}`}</span>
+                        <span className="font-bold md:text-2xl">{`${gameName}`}</span>
                       </div>
-                      <span className="!mx-4 !my-1">&gt;</span>
+                      <span className="mx-4 my-1">&gt;</span>
                     </div>
                   );
                 })
               ) : (
-                <div className="mx-[10px] text-gray-500"></div>
+                <div className="mx-2.5 text-gray-500"></div>
               )}
             </div>
           </div>
