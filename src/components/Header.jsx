@@ -6,7 +6,7 @@ const Header = () => {
   const nav = useNavigate();
 
   return (
-    <header className="flex w-full py-5 border-b border-white/10 justify-between items-center">
+    <header className="flex items-center justify-between w-full py-3 m-auto border-b md:py-5 lg:py-6 border-white/10">
       <img
         src={logo}
         onClick={() => nav("/")}
@@ -14,7 +14,7 @@ const Header = () => {
         alt="logo"
       />
       <HiOutlineMenu
-        className="text-white text-3xl cursor-pointer"
+        className="text-2xl text-white cursor-pointer md:text-3xl"
         onClick={() => nav("/AllStreamers")}
       />
     </header>

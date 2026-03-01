@@ -10,7 +10,7 @@ const BroadcastInfo = ({ isEditMode, data, setData }) => {
       <SectionTitle text={"# 방송 시작 시간"} />
 
       {/* 날짜/시간 선택 */}
-      <div className="w-[95%] grid grid-cols-2 !mb-[10px] !ml-[15px] items-start justify-start text-white text-[15px]">
+      <div className="w-[95%] lg:w-[98%] grid grid-cols-2 mb-1 md:mb-2.5 ml-2 md:ml-4 items-start justify-start text-white text-sm md:text-lg">
         <DatePicker
           selected={data.date}
           onChange={(date) => setData({ ...data, date })}
@@ -18,7 +18,7 @@ const BroadcastInfo = ({ isEditMode, data, setData }) => {
           placeholderText="날짜 선택"
           popperPlacement="bottom-start"
           disabled={!isEditMode}
-          className="rounded-[4px] border border-gray-300 px-2 py-1 mr-[10px] h-[35px] w-full"
+          className="rounded-[4px] border border-gray-300 px-2 py-1 mr-2.5 h-8 md:h-9 w-full lg:h-10"
           popperClassName="datepicker-popper ml-[15px]"
           portalId="root-portal"
         />
@@ -33,22 +33,22 @@ const BroadcastInfo = ({ isEditMode, data, setData }) => {
           dateFormat="HH:mm"
           placeholderText="시간 선택"
           disabled={!isEditMode}
-          className="rounded-[4px] border border-gray-300 px-2 py-1 mr-[10px] h-[35px] w-full"
+          className="rounded-[4px] border border-gray-300 px-2 py-1 mr-2.5 h-8 md:h-9 w-full lg:h-10"
           popperClassName="timepicker-popper"
           portalId="root-portal"
         />
       </div>
 
       {/* 스트림 링크 */}
-      <div className="flex items-center !ml-[15px] text-white">
+      <div className="flex items-center ml-2 text-white md:ml-4">
         <GoPaperclip className="h-[25px] w-[25px] " />
-        <div className="border-b border-gray-500 w-full">
+        <div className="w-[85%] md:w-full border-b border-gray-500">
           <textarea
             name="streamlink"
             value={data.link || ""}
             onChange={(e) => setData({ ...data, link: e.target.value })}
             disabled={!isEditMode}
-            className="resize-none overflow-hidden w-full h-[20px] pb-2 mt-3 ml-[5px] mr-[20px]"
+            className="resize-none overflow-hidden w-full h-3 md:h-5 pb-2 mt-3 ml-1.25 mr-5 lg:w-[90%] text-sm md:text-lg bg-transparent"
           />
         </div>
       </div>

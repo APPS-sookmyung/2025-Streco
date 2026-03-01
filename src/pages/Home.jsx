@@ -4,7 +4,7 @@ import RecoCalendar from "../components/RecoCalendar";
 import Plan from "../components/Plan";
 import moment from "moment";
 
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { useScheduleState } from "../hooks/useSchedule";
 
 const Home = () => {
@@ -31,12 +31,19 @@ const Home = () => {
     <div>
       <Header />
       <StreamerBar />
-      <RecoCalendar
-        selectedDate={selectedDate}
-        onDateChange={handleDateChange}
-        recordDates={recordDates}
-      />
-      <Plan selectedDate={selectedDate} />
+      <div className="lg:flex lg:w-full lg:gap-8">
+        <div className="lg:w-1/2 lg:flex-1">
+          <RecoCalendar
+            selectedDate={selectedDate}
+            onDateChange={handleDateChange}
+            recordDates={recordDates}
+          />
+        </div>
+
+        <div className="lg:w-1/2 lg:flex-1 lg:mt-5">
+          <Plan selectedDate={selectedDate} />
+        </div>
+      </div>
     </div>
   );
 };

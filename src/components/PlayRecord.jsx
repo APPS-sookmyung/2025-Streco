@@ -23,7 +23,7 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
     if (!selectedGame || !name) return "";
     return new URL(
       `../assets/${selectedGame.value}/${name}.webp`,
-      import.meta.url
+      import.meta.url,
     ).href;
   }
 
@@ -35,7 +35,7 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
     <div>
       <div className="game">
         <SectionTitle text={"# 게임 종류"} />
-        <div className="!ml-[15px]">
+        <div className="ml-2 md:ml-4">
           <CustomSelect
             options={gameOptions}
             value={game}
@@ -49,7 +49,7 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
             <img
               src={game.image}
               alt={game.label}
-              className="m-[10px] h-[150px] rounded-[10px]"
+              className="m-2.5 h-30 md:h-37.5 rounded-2.5"
             />
           )}
         </div>
@@ -57,15 +57,15 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
 
       <div className="gameset">
         <SectionTitle text={"# 주요 플레이 기록"} />
-        <div className="flex items-center !ml-[25px] !mb-[10px]">
+        <div className="flex items-center ml-4 mb-2.5">
           <input
             type="checkbox"
             checked={matchEnabled}
             onChange={handleMatchToggle}
             disabled={!isEditMode}
-            className="m-0 h-[25px] w-[25px] rounded-[5px]"
+            className="m-0 h-5 w-5 md:h-6.25 md:w-6.25 rounded-1.25"
           />
-          <span className="mx-[10px] text-center text-white">경기</span>
+          <span className="mx-2 md:mx-2.5 text-center text-white">경기</span>
           <input
             type="number"
             value={score.my}
@@ -73,7 +73,7 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
               setData({ ...data, score: { ...score, my: e.target.value } })
             }
             disabled={!isEditMode || !matchEnabled}
-            className={`h-[25px] mx-[5px] w-[60px] rounded-[5px] text-[15px] pl-[5px] border ${
+            className={`h-6 md:h-6.25 mx-1 md:mx-1.25 w-15 rounded-[5px] text-3.75 pl-1.25 border ${
               matchEnabled
                 ? "border-black bg-white text-black"
                 : "border-gray-300 bg-[#f5f5f5] text-gray-500"
@@ -87,7 +87,7 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
               setData({ ...data, score: { ...score, enemy: e.target.value } })
             }
             disabled={!isEditMode || !matchEnabled}
-            className={`h-[25px] mx-[5px] w-[60px] rounded-[5px] text-[15px] pl-[5px] border ${
+            className={`h-6 md:h-6.25 mx-1 md:mx-1.25 w-15 rounded-[5px] text-3.75 pl-1.25 border ${
               matchEnabled
                 ? "border-black bg-white text-black"
                 : "border-gray-300 bg-[#f5f5f5] text-gray-500"
@@ -101,10 +101,10 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
               src={getImgUrl(game, character.value)}
               alt={character.label}
               onError={() => setImgError(true)}
-              className="!ml-[10px] h-[50px] rounded-full"
+              className="!ml-0 h-10 md:h-12.5 lg:h-14 rounded-full"
             />
           )}
-          <div className="flex !ml-2.5">
+          <div className="flex ml-0 md:ml-2.5 gap-2 lg:gap-0">
             <CustomSelect
               options={characters}
               value={character}
@@ -127,7 +127,7 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
 
       <div className="diary">
         <SectionTitle text={"# 감상 기록"} />
-        <div className="!ml-[15px]">
+        <div className="ml-0 md-ml-3.75">
           <textarea
             name="diarycontents"
             rows={4}
@@ -136,7 +136,7 @@ const PlayRecord = ({ isEditMode, data, setData }) => {
             value={memo || ""}
             onChange={(e) => setData({ ...data, memo: e.target.value })}
             placeholder="감상을 입력하세요."
-            className="border-0 text-[15px] resize-none overflow-y-scroll w-[425px] h-[200px] mx-[15px] ml-[10px] bg-[#7b7b7b] rounded-[4px] p-[10px] text-white"
+            className="border-0 text-xs md:text-base resize-none overflow-y-scroll w-[97%] h-25 md:h-50 mx-3.75 ml-2.5 bg-[#7b7b7b] rounded-[4px] p-2.5 text-white"
           />
         </div>
       </div>

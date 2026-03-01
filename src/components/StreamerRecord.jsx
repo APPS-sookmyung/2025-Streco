@@ -18,21 +18,21 @@ const StreamerRecord = ({
   };
 
   return (
-    <div className="w-[445px] flex justify-between items-center ml-0 pt-[10px]">
+    <div className="w-full flex justify-between items-center ml-0 pt-[10px]">
       <div className="flex items-center !m-0">
         {streamer.image && (
           <img
             src={streamer.image}
             alt={streamer.name}
-            className="rounded-full h-[70px] m-[5px]"
+            className="rounded-full md:w-[70px] md:h-[70px] w-12 h-12 m-0 md:m-[5px]"
           />
         )}
-        <h2 className="self-center font-bold text-white ml-2">
+        <h2 className="self-center ml-2 font-semibold text-white md:font-bold md:text-2xl">
           {streamer.name}
         </h2>
       </div>
 
-      <div className="flex flex-row !m-0">
+      <div className="flex flex-row gap-2 md:gap-0 !m-0">
         {isEditMode ? (
           <>
             <Button

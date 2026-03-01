@@ -12,9 +12,9 @@ const AllStreamers = () => {
       <Header />
 
       {/* 리스트 컨테이너 */}
-      <div className="flex w-[445px] flex-col gap-4 max-w-2xl pt-4">
+      <div className="flex flex-col w-full gap-4 pt-4">
         {streamers.length === 0 ? (
-          <div className="text-center text-gray-500 py-10">
+          <div className="py-10 text-center text-gray-500">
             등록된 스트리머가 없습니다.
           </div>
         ) : (
@@ -28,9 +28,9 @@ const AllStreamers = () => {
                 <img
                   src={streamer.image}
                   alt={streamer.name}
-                  className="w-14 h-14 rounded-full object-cover"
+                  className="object-cover w-10 h-10 rounded-full md:w-14 md:h-14"
                 />
-                <span className="text-lg font-semibold text-white">
+                <span className="text-base font-semibold text-white md:text-lg">
                   {streamer.name}
                 </span>
               </div>
@@ -44,7 +44,7 @@ const AllStreamers = () => {
                     onDeleteStreamer(streamer.id);
                   }
                 }}
-                className="p-2  text-red-500 hover:text-red-400 hover:bg-red-500/10 rounded-full transition-all cursor-pointer"
+                className="p-2 text-red-500 transition-all rounded-full cursor-pointer hover:text-red-400 hover:bg-red-500/10"
                 aria-label="삭제"
               >
                 <HiOutlineTrash size={20} />

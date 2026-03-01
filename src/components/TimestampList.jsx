@@ -29,7 +29,7 @@ const TimestampList = ({ list, setList, broadcastInfo, isEditMode }) => {
 
     if (!date || !startTime) {
       alert(
-        "타임스탬프를 추가하기 전에 방송 시작 시간(날짜/시각)을 설정해주세요."
+        "타임스탬프를 추가하기 전에 방송 시작 시간(날짜/시각)을 설정해주세요.",
       );
       return;
     }
@@ -42,8 +42,8 @@ const TimestampList = ({ list, setList, broadcastInfo, isEditMode }) => {
 
     setList(
       [...list, newTimestamp].sort(
-        (a, b) => a.timestampTime.getTime() - b.timestampTime.getTime()
-      )
+        (a, b) => a.timestampTime.getTime() - b.timestampTime.getTime(),
+      ),
     );
   };
 
@@ -75,7 +75,7 @@ const TimestampList = ({ list, setList, broadcastInfo, isEditMode }) => {
     if (!isEditMode) return;
     if (
       window.confirm(
-        `[${text.substring(0, 10)}...] 타임스탬프를 정말 삭제하시겠습니까?`
+        `[${text.substring(0, 10)}...] 타임스탬프를 정말 삭제하시겠습니까?`,
       )
     ) {
       setList(list.filter((t) => t.id !== id));
@@ -85,9 +85,9 @@ const TimestampList = ({ list, setList, broadcastInfo, isEditMode }) => {
   return (
     <div>
       <SectionTitle text={"# 타임스탬프"} />
-      <div className="!ml-[15px]">
+      <div className="ml-2 md:ml-4.5 lg:ml-3">
         {list.length === 0 ? (
-          <div className="text-[14px] text-[#888] mb-[15px]"></div>
+          <div className="text-[14px] md:text-base text-[#888] mb-[15px]"></div>
         ) : (
           list.map((item) => (
             <TimestampItem
@@ -101,7 +101,7 @@ const TimestampList = ({ list, setList, broadcastInfo, isEditMode }) => {
         )}
       </div>
 
-      <div className="!-mt-[5px] !ml-[15px]">
+      <div className="!-mt-[5px] ml-0.5 md:ml-3.5 lg:ml-2.5">
         <Button
           text={"+"}
           type="ADD"
